@@ -16,16 +16,20 @@ services:
 
   back:
     container_name: hacknarok_back
-    restart: always
     depends_on:
       - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
-    build: .
+    image: maven:3.6.3-jdk-11
+    command: mvn spring-boot:run
     ports:
       - "8080:8080"
+    volumes:
+      - .:/usr/src/mymaven:rw
+    working_dir: /usr/src/mymaven
+
   web:
     restart: always
     stdin_open: true
