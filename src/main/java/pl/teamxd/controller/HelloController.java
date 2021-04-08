@@ -27,7 +27,7 @@ public class HelloController {
     public void generate(){
         for (int i = 0; i < 10; i++){
             var test = new TestEntity();
-            test.setName("Ala " + i );
+            test.setName("Test " + i );
             testRepository.save(test);
         }
     }
