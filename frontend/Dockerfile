@@ -4,7 +4,7 @@ WORKDIR '/app'
 COPY package.json .
 
 RUN npm config set fund false --global
-RUN npm install
+RUN npm install --force
 
 COPY . .
 
